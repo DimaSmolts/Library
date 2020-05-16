@@ -6,6 +6,7 @@ import BookPage from './components/BookPage/BookPage'
 import PurchasePage from './components/PurchasePage/PurchasePage'
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Message, { MessageTypes, MessageTextSizes } from './components/Message/Message'
 
 export default class App extends React.Component {
   render() {
@@ -18,7 +19,9 @@ export default class App extends React.Component {
               <Route exact path={['/', '/books']} component={BookListPage} />
               <Route exact path='/books/:bookId' render={(routeProps) => <BookPage bookId={routeProps.match.params.bookId} />} />
               <Route exact path='/purchase' component={PurchasePage} />
-              <Route path='/*' render={() => <h1>not found</h1>} />
+              <Route path='/*'>
+                <Message type={MessageTypes.msgNotFound} size={MessageTextSizes.msgBig} text='Sorry, page not found :(' />
+              </Route>
             </Switch>
           </BrowserRouter>
         </div>

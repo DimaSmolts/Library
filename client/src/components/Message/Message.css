@@ -1,0 +1,24 @@
+.message {
+  margin: 15% auto;
+  text-align: center;
+}
+
+.msgSmall {
+  font-size: 3ex;
+}
+.msgMedium {
+  font-size: 6ex;
+}
+.msgBig {
+  font-size: 9ex;
+}
+
+.msgInfo,
+.msgSuccess,
+.msgNotFound {
+  color: var(--dark-blue);
+}
+
+.msgError {
+  color: red;
+}
