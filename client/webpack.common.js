@@ -22,8 +22,20 @@ module.exports = {
             },
             {
               test: /\.(woff|woff2)$/,
-              loader: 'url-loader?limit=100000'
-            }
+              loader: 'file-loader',
+              options: {
+                mimetype: 'application/font-woff',
+                name: 'assests/fonts/[name].[ext]',
+              }
+            },
+            {
+              test: /\.(jpg|png|svg|ico)$/,
+              loader: 'file-loader',
+              options: {
+                name: 'assests/images/[name].[ext]',
+                esModule: false
+              }
+            },
         ],
     },
     output: {
@@ -33,7 +45,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'index.html')
+            template: path.join(__dirname, 'index.html'),
+            favicon: './src/assets/images/library-logo.ico'
         }),
         new Dotenv()
     ]
