@@ -1,0 +1,10 @@
+.header {
+  background: var(--dark-blue);
+  color: var(--gold);
+  vertical-align: middle;
+  padding: 0px 40px;
+  font-size: 50px;
+
+  display: grid;
+  align-items: center;
+}
