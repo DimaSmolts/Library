@@ -1,16 +1,23 @@
+.message-container {
+  display: grid;
+  grid-template-rows: 20% 20% 1fr;
+  height: 100%;
+}
+
 .message {
-  margin: 15% auto;
+  place-self: center;
+  grid-row: 2;
   text-align: center;
 }
 
 .msgSmall {
-  font-size: 3ex;
+  font-size: 1rem;
 }
 .msgMedium {
-  font-size: 6ex;
+  font-size: 2rem;
 }
 .msgBig {
-  font-size: 9ex;
+  font-size: 4rem;
 }
 
 .msgInfo,

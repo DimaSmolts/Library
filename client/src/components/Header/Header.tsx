@@ -8,7 +8,7 @@ export default class Header extends React.Component {
   render() {
     return <div className='header'>
       <img src={libraryLogo} />
-      <p>Library</p>
+      <h1>Library</h1>
       <img src={shoppingBag} />
     </div>
   }

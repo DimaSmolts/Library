@@ -23,11 +23,13 @@ export interface MessageProps {
 export default class Message extends React.Component<MessageProps> {
   render() {
     return (
-      <div className={
-        'message ' +
-        MessageTextSizes[this.props.size] + ' ' +
-        MessageTypes[this.props.type]}>
-        {this.props.text}
+      <div className='message-container'>
+        <p className={
+          'message ' +
+          MessageTextSizes[this.props.size] + ' ' +
+          MessageTypes[this.props.type]}>
+          {this.props.text}
+        </p>
       </div>
     )
   }
