@@ -1,0 +1,40 @@
+.book-detail-container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: auto auto auto auto auto;
+  background: var(--gold);
+  color: var(--dark-blue);
+  width: 100%;
+  box-shadow: 5px 5px 15px;
+}
+
+.book-detail-image {
+  grid-row: 1 / 5;
+  grid-column: 1 / 1;
+}
+
+.book-detail-image img {
+  max-width: 480px;
+  width: auto;
+}
+
+.book-detail-rate {
+  grid-row: 5 / 6;
+  grid-column: 1 / 1;
+}
+
+.book-detail-author {
+  font-size: 2em;
+}
+
+.book-detail-name {
+  font-size: 3em;
+}
+
+.book-detail-price {
+
+}
+
+.book-detail-description {
+
+}
