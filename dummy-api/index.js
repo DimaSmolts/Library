@@ -1,6 +1,8 @@
 require('dotenv-expand')(require('dotenv').config());
 var express = require('express');
+var cors = require('cors');
 var app = express();
+app.use(cors({origin: '*'}));
 app.use('/api/media', express.static('images'));
 
 var port = process.env.PORT ? process.env.PORT : 3000;
