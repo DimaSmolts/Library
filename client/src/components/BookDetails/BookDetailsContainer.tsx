@@ -1,31 +1,49 @@
 import React from 'react';
 import { BookNavParams } from '../BookPage/BookPage'
-import { Book } from '../../helpers/BookModel'
 import BookDetails from './BookDetails'
+import Message, { MessageTypes, MessageTextSizes } from '../Message/Message'
+import { getBookThunk, cleanUpThunk } from '../../store/thunks/bookThunks'
+import { connect, ConnectedProps } from 'react-redux';
+import { AppState } from '../../store/rootReducer'
 
-type BookDetailsContainerState = {
-  book: Book,
-  isLoading: boolean
-}
 
-export default class BookDetailsContainer extends React.Component<BookNavParams, BookDetailsContainerState> {
-  constructor(props: any) {
-    super(props);
-    this.state = { book: null, isLoading: true }
+class BookDetailsContainer extends React.Component<BookNavParams & PropsFromRedux> {
+  componentDidMount() {
+    this.props.getBook(+this.props.bookId);
   }
 
-  async componentDidMount() {
-    fetch(`http://localhost:3000/api/books/${this.props.bookId}`)
-      .then<Book>(response => response.json())
-      .then(book => this.setState({ book: book, isLoading: false }))
-      .catch(error => { throw new Error('something wrong') });
+  componentWillUnmount() {
+    this.props.cleanUp();
   }
 
   render() {
-    if (this.state.isLoading === true) {
-      return <span> Loading </span>
-    } else if (this.state.isLoading === false) {
-      return <BookDetails book={this.state.book} />
-    }
+    if (this.props.error)
+      throw new Error(this.props.error.toString());
+
+    return <>
+      {
+        this.props.isFetched ?
+          <BookDetails book={this.props.book} />
+          :
+          <Message type={MessageTypes.msgInfo} size={MessageTextSizes.msgBig} text='Loading...' />
+      }
+    </>
   }
 }
+
+const mapState = (state: AppState) => ({
+  book: state.bookReducer.book,
+  isFetched: state.bookReducer.isFetched,
+  error: state.bookReducer.error
+})
+
+
+const mapDispatch = {
+  getBook: (id: number) => getBookThunk(id),
+  cleanUp: () => cleanUpThunk(),
+}
+
+const connector = connect(mapState, mapDispatch);
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+export default connector(BookDetailsContainer)
