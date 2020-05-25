@@ -16,11 +16,11 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <div className='layout'>
-          <Header />
-          <div className='content'>
-            <ErrorBoundary>
-              <BrowserRouter>
+        <BrowserRouter>
+          <div className='layout'>
+            <Header />
+            <div className='content'>
+              <ErrorBoundary>
                 <Switch>
                   <Route exact path={['/', '/books']} component={BookListPage} />
                   <Route exact path='/books/:bookId' render={(routeProps) => <BookPage bookId={routeProps.match.params.bookId} />} />
@@ -29,11 +29,11 @@ export default class App extends React.Component {
                     <Message type={MessageTypes.msgNotFound} size={MessageTextSizes.msgBig} text='Sorry, page not found :(' />
                   </Route>
                 </Switch>
-              </BrowserRouter>
-            </ErrorBoundary>
+              </ErrorBoundary>
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
+        </BrowserRouter>
       </Provider>
     )
   }
