@@ -1,7 +1,10 @@
 import React from 'react';
+import BookListContainer from '../BookList/BookListContainer';
 
 export default class BookListPage extends React.Component {
   render() {
-    return <h1>BookList</h1>
+    return <>
+      <BookListContainer />
+    </>
   }
 }
