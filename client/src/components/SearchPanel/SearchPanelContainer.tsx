@@ -1,11 +1,13 @@
 import React from 'react';
 import SearchPanel from './SearchPanel';
+import { searchBookThunk } from '../../store/thunks/searchThunks';
+import { connect, ConnectedProps } from 'react-redux';
 
 interface SearchPanelState {
   query: string,
 }
 
-export default class SearchPanelContainer extends React.Component<{}, SearchPanelState> {
+class SearchPanelContainer extends React.Component<PropsFromRedux, SearchPanelState> {
   constructor(props: any) {
     super(props);
     this.state = { query: '' };
@@ -19,8 +21,7 @@ export default class SearchPanelContainer extends React.Component<{}, SearchPane
 
   handleQuerySubmit(event: React.FormEvent<EventTarget>) {
     event.preventDefault();
-    // TODO: redux here
-    alert(`submited with: ${this.state.query.trim()}`);
+    this.props.searchBookThunk(this.state.query);
   }
 
   render() {
@@ -29,3 +30,12 @@ export default class SearchPanelContainer extends React.Component<{}, SearchPane
       handleQuerySubmit={this.handleQuerySubmit} />
   }
 }
+
+const mapDispatch = {
+  searchBookThunk: (query: string) => searchBookThunk(query),
+}
+
+const connector = connect(null, mapDispatch);
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+export default connector(SearchPanelContainer);

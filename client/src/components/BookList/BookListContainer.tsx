@@ -4,6 +4,7 @@ import Message, { MessageTypes, MessageTextSizes } from '../Message/Message'
 import { getBooksThunk, cleanUpThunk } from '../../store/thunks/bookListThunks'
 import { connect, ConnectedProps } from 'react-redux';
 import { AppState } from '../../store/rootReducer';
+import { filterBookList } from '../../helpers/bookListHelper'
 
 class BooksListContainer extends React.Component<PropsFromRedux> {
   componentDidMount() {
@@ -30,7 +31,7 @@ class BooksListContainer extends React.Component<PropsFromRedux> {
 }
 
 const mapState = (state: AppState) => ({
-  books: state.bookListReducer.books,
+  books: filterBookList(state.bookListReducer.books, state.searchReducer.query),
   areFetched: state.bookListReducer.areFetched,
   error: state.bookListReducer.error
 })
