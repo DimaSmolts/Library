@@ -1,0 +1,27 @@
+.book-card {
+  background: var(--gold);
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border: 2px solid var(--dark-blue);
+}
+
+.book-card:hover{
+  box-shadow: 5px 5px 15px;
+}
+
+.book-card img {
+  width: 100%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 2px solid var(--dark-blue);
+}
+
+.book-card-link {
+  text-decoration: none;
+  color: var(--dark-blue);
+}
+
+.book-card-author {
+  font-size: 0.7em;
+}

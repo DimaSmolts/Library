@@ -32,7 +32,7 @@ class BooksListContainer extends React.Component<PropsFromRedux> {
 const mapState = (state: AppState) => ({
   books: state.bookListReducer.books,
   areFetched: state.bookListReducer.areFetched,
-  error: state.bookListReducer.areFetched
+  error: state.bookListReducer.error
 })
 
 

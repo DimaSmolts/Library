@@ -1,6 +1,7 @@
 import React from 'react';
-import { Book } from '../../helpers/BookModel'
-import './index.css'
+import { Book } from '../../helpers/BookModel';
+import './index.css';
+import BookCard from '../BookCard/BookCard'
 
 interface BookListProps {
   books: Array<Book>,
@@ -8,7 +9,12 @@ interface BookListProps {
 
 export default class BookList extends React.Component<BookListProps> {
   render() {
-    // TODO: map book array to BookCards here
-    return <span> hey </span>
+    return <div className='book-list'>
+      {
+        this.props.books.map(book => {
+          return <BookCard book={book} />
+        })
+      }
+    </div>
   }
 }
