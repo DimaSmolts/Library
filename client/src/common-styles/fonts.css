@@ -10,3 +10,7 @@ html {
   font-family: 'Alata';
   font-size: 20px;
 }
+
+input, button {
+  font-family:inherit;
+}
