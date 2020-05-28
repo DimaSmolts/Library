@@ -1,13 +1,14 @@
 import React from 'react';
 import SearchPanel from './SearchPanel';
-import { searchBookThunk } from '../../store/thunks/searchThunks';
+import { getBooksThunk } from '../../store/thunks/bookListThunks';
 import { connect, ConnectedProps } from 'react-redux';
+import { BookListHistory } from '../BookListPage/BookListPage';
 
 interface SearchPanelState {
   query: string,
 }
 
-class SearchPanelContainer extends React.Component<PropsFromRedux, SearchPanelState> {
+class SearchPanelContainer extends React.Component<PropsFromRedux & BookListHistory, SearchPanelState> {
   constructor(props: any) {
     super(props);
     this.state = { query: '' };
@@ -21,7 +22,11 @@ class SearchPanelContainer extends React.Component<PropsFromRedux, SearchPanelSt
 
   handleQuerySubmit(event: React.FormEvent<EventTarget>) {
     event.preventDefault();
-    this.props.searchBookThunk(this.state.query);
+    this.props.refreshBooks(this.state.query);
+    this.props.history.push({
+      pathname: '/books',
+      search: `?search=${this.state.query}`,
+    });
   }
 
   render() {
@@ -32,7 +37,7 @@ class SearchPanelContainer extends React.Component<PropsFromRedux, SearchPanelSt
 }
 
 const mapDispatch = {
-  searchBookThunk: (query: string) => searchBookThunk(query),
+  refreshBooks: (query: string) => getBooksThunk(query),
 }
 
 const connector = connect(null, mapDispatch);

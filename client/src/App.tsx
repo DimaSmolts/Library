@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history';
 import './common-styles/index.css'
 import BookListPage from './components/BookListPage/BookListPage'
 import BookPage from './components/BookPage/BookPage'
@@ -9,20 +10,22 @@ import Footer from './components/Footer/Footer';
 import Message, { MessageTypes, MessageTextSizes } from './components/Message/Message'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import { Provider } from 'react-redux'
-import configureStore from './store/configureStore'
+import configureStore from './store/configureStore';
+
 const store = configureStore();
+const history = createBrowserHistory();
 
 export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <BrowserRouter>
+        <Router history={history}>
           <div className='layout'>
             <Header />
             <div className='content'>
               <ErrorBoundary>
                 <Switch>
-                  <Route exact path={['/', '/books']} component={BookListPage} />
+                  <Route exact path={['/', '/books']} render={(routeProps) => <BookListPage queryParams={routeProps.location.search} history={routeProps.history} />} />
                   <Route exact path='/books/:bookId' render={(routeProps) => <BookPage bookId={routeProps.match.params.bookId} />} />
                   <Route exact path='/purchase' component={PurchasePage} />
                   <Route path='/*'>
@@ -33,7 +36,7 @@ export default class App extends React.Component {
             </div>
             <Footer />
           </div>
-        </BrowserRouter>
+        </Router>
       </Provider>
     )
   }

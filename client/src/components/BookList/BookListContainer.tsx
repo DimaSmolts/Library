@@ -4,11 +4,12 @@ import Message, { MessageTypes, MessageTextSizes } from '../Message/Message'
 import { getBooksThunk, cleanUpThunk } from '../../store/thunks/bookListThunks'
 import { connect, ConnectedProps } from 'react-redux';
 import { AppState } from '../../store/rootReducer';
-import { filterBookList } from '../../helpers/bookListHelper'
+import { BookListNavParams } from '../BookListPage/BookListPage';
 
-class BooksListContainer extends React.Component<PropsFromRedux> {
+class BooksListContainer extends React.Component<PropsFromRedux & BookListNavParams> {
   componentDidMount() {
-    this.props.getBooks();
+    const searchQuery = new URLSearchParams(this.props.queryParams).get('search') || '';
+    this.props.getBooks(searchQuery);
   }
 
   componentWillUnmount() {
@@ -31,14 +32,14 @@ class BooksListContainer extends React.Component<PropsFromRedux> {
 }
 
 const mapState = (state: AppState) => ({
-  books: filterBookList(state.bookListReducer.books, state.searchReducer.query),
+  books: state.bookListReducer.books,
   areFetched: state.bookListReducer.areFetched,
   error: state.bookListReducer.error
 })
 
 
 const mapDispatch = {
-  getBooks: () => getBooksThunk(),
+  getBooks: (query: string) => getBooksThunk(query),
   cleanUp: () => cleanUpThunk(),
 }
 
