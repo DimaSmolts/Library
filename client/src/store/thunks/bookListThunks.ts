@@ -1,6 +1,7 @@
 import {
   startFetchingBooks,
   errorFetchingBooks,
+  booksNotFound,
   successFetchingBooks,
   cleanUpBooks
 } from '../actions/bookListActions'
@@ -16,10 +17,20 @@ export const getBooksThunk = (query: string) => {
       .then<Array<Book>>(response => response.data)
       .then(books => filterBookList(books, query))
       .then(books => {
-        dispatch(successFetchingBooks(books));
+        if (books.length === 0) {
+          // weird a bit, but was done like that due to requirements (client-side search)
+          // in case of server-side search after filtering, 404 error would be returned
+          throw { response: { status: 404 } };
+        } else {
+          dispatch(successFetchingBooks(books));
+        }
       })
       .catch(error => {
-        dispatch(errorFetchingBooks(error.response.status));
+        if (error.response.status === 404) {
+          dispatch(booksNotFound());
+        } else {
+          dispatch(errorFetchingBooks(error.response.status));
+        }
       });
   }
 }

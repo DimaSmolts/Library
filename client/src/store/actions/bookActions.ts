@@ -3,6 +3,7 @@ import { Book } from '../../helpers/BookModel'
 // constants
 export const START_FETCHING_BOOK = 'START_FETCHING_BOOK';
 export const ERROR_FETCHING_BOOK = 'ERROR_FETCHING_BOOK';
+export const BOOK_NOT_FOUND = 'BOOKS_NOT_FOUND';
 export const SUCCESS_FETCHING_BOOK = 'SUCCESS_FETCHING_BOOK';
 export const CLEAN_UP_BOOK = 'CLEAN_UP_BOOK';
 
@@ -13,6 +14,9 @@ type StartFetchingBookAction = {
 type ErrorFetchingBookAction = {
   type: typeof ERROR_FETCHING_BOOK,
   errorCode: number | null
+}
+type BookNotFoundAction = {
+  type: typeof BOOK_NOT_FOUND,
 }
 type SuccessFetchingBookAction = {
   type: typeof SUCCESS_FETCHING_BOOK,
@@ -34,6 +38,11 @@ export const errorFetchingBook = (errorCode: number) => {
     errorCode: errorCode,
   };
 }
+export const bookNotFound = () => {
+  return {
+    type: BOOK_NOT_FOUND,
+  };
+}
 export const successFetchingBook = (book: Book) => {
   return {
     type: SUCCESS_FETCHING_BOOK,
@@ -49,5 +58,6 @@ export const cleanUpBook = () => {
 export type BookActions =
   StartFetchingBookAction
   | ErrorFetchingBookAction
+  | BookNotFoundAction
   | SuccessFetchingBookAction
   | CleanUpBookAction;

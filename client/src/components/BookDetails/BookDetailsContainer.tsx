@@ -18,6 +18,8 @@ class BookDetailsContainer extends React.Component<BookNavParams & PropsFromRedu
   render() {
     if (this.props.error)
       throw new Error(this.props.error.toString());
+    if (this.props.notFound)
+      return <Message type={MessageTypes.msgNotFound} size={MessageTextSizes.msgBig} text='Not Found' />
 
     return <>
       {
@@ -33,7 +35,8 @@ class BookDetailsContainer extends React.Component<BookNavParams & PropsFromRedu
 const mapState = (state: AppState) => ({
   book: state.bookReducer.book,
   isFetched: state.bookReducer.isFetched,
-  error: state.bookReducer.error
+  error: state.bookReducer.error,
+  notFound: state.bookReducer.notFound,
 })
 
 const mapDispatch = {

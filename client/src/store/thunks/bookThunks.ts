@@ -1,6 +1,7 @@
 import {
   startFetchingBook,
   errorFetchingBook,
+  bookNotFound,
   successFetchingBook,
   cleanUpBook
 } from '../actions/bookActions'
@@ -17,7 +18,11 @@ export const getBookThunk = (id: number) => {
         dispatch(successFetchingBook(book));
       })
       .catch(error => {
-        dispatch(errorFetchingBook(error.response.status));
+        if (error.response.status === 404) {
+          dispatch(bookNotFound());
+        } else {
+          dispatch(errorFetchingBook(error.response.status));
+        }
       });
   }
 }

@@ -19,10 +19,12 @@ class BooksListContainer extends React.Component<PropsFromRedux & BookListNavPar
   render() {
     if (this.props.error)
       throw new Error(this.props.error.toString());
+    if (this.props.notFound)
+      return <Message type={MessageTypes.msgNotFound} size={MessageTextSizes.msgBig} text='Not Found' />
 
     return <>
       {
-        this.props.areFetched ?
+        this.props.areBooksFetched ?
           <BookList books={this.props.books} />
           :
           <Message type={MessageTypes.msgInfo} size={MessageTextSizes.msgBig} text='Loading...' />
@@ -33,8 +35,9 @@ class BooksListContainer extends React.Component<PropsFromRedux & BookListNavPar
 
 const mapState = (state: AppState) => ({
   books: state.bookListReducer.books,
-  areFetched: state.bookListReducer.areFetched,
-  error: state.bookListReducer.error
+  areBooksFetched: state.bookListReducer.areFetched,
+  error: state.bookListReducer.error,
+  notFound: state.bookListReducer.notFound
 })
 
 
