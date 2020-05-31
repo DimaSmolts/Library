@@ -1,0 +1,54 @@
+.purchase-completion {
+  display: grid;
+  grid-gap: 1em 0;
+  grid-template-columns: 52% 16% 16% 16%;
+  width: 75%;
+  margin: 25px auto;
+
+  background: var(--gold);
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border: 2px solid var(--dark-blue);
+}
+
+.purchase-completion span {
+  text-align: center;
+  align-self: center;
+}
+
+.total {
+  grid-column: 1/4;
+}
+
+.total-line {
+  grid-column: 1/5;
+  width: 100%;
+  height: 2px;
+  background: var(--dark-blue);
+}
+
+.final-price{
+  grid-column: 4;
+}
+
+.submit-purchase {
+  font-size: 1em;
+  font-weight: bold;
+  background: var(--gold);
+  border-radius: 40px;
+  border: 4px solid var(--dark-blue);
+  vertical-align: bottom;
+  grid-column: 1/5;
+  width: 110px;
+  margin: 0 auto;
+}
+
+.submit-purchase:hover {
+  background: var(--dark-gold);
+  cursor: pointer;
+}
+
+.purchase-column-title {
+  font-weight: bold;
+}
