@@ -1,5 +1,5 @@
 import React from 'react'
-import BookDetailsContainer from '../BookDetails/BookDetailsContainer'
+import BookDetailsContainer from '../BookDetails'
 
 export interface BookNavParams {
   bookId: string,

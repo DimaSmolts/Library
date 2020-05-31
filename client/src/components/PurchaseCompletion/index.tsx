@@ -1,13 +1,12 @@
 import React from 'react'
 import { AppState } from '../../store/rootReducer'
-import { connect, ConnectedProps } from 'react-redux';
-import { addBookToCartThunk, removeBookFromCartThunk } from '../../store/thunks/cartThunks';
-import { Book } from '../../helpers/BookModel';
-import PurchaseCompletion from './PurchaseCompletion';
-import Message, { MessageTypes, MessageTextSizes } from '../Message/Message';
+import { connect, ConnectedProps } from 'react-redux'
+import { addBookToCartThunk, removeBookFromCartThunk } from '../../store/thunks/cartThunks'
+import { Book } from '../../helpers/BookModel'
+import PurchaseCompletion from './PurchaseCompletion'
+import Message, { MessageTypes, MessageTextSizes } from '../Message/Message'
 
 class PurchaseCompletionContainer extends React.Component<PropsFromRedux> {
-
   handlePurchaseCompletion(event: React.FormEvent<EventTarget>) {
     alert('Thanks!');
   }
@@ -33,7 +32,7 @@ const mapDispatch = {
   removeBookFromCart: (book: Book) => removeBookFromCartThunk(book),
 }
 
-const connector = connect(mapState, mapDispatch);
+const connector = connect(mapState, mapDispatch)
 type PropsFromRedux = ConnectedProps<typeof connector>
 
 export default connector(PurchaseCompletionContainer)

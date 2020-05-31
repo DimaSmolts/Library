@@ -1,8 +1,8 @@
-import React from 'react';
-import SearchPanel from './SearchPanel';
-import { getBooksThunk, cleanUpThunk } from '../../store/thunks/bookListThunks';
-import { connect, ConnectedProps } from 'react-redux';
-import { History } from 'history';
+import React from 'react'
+import SearchPanel from './SearchPanel'
+import { getBooksThunk, cleanUpThunk } from '../../store/thunks/bookListThunks'
+import { connect, ConnectedProps } from 'react-redux'
+import { History } from 'history'
 
 interface SearchPanelState {
   query: string,
@@ -15,32 +15,32 @@ export interface SearchPanelProps {
 
 class SearchPanelContainer extends React.Component<PropsFromRedux & SearchPanelProps, SearchPanelState> {
   constructor(props: PropsFromRedux & SearchPanelProps) {
-    super(props);
-    const searchQuery = new URLSearchParams(this.props.queryParams).get('search') || '';
-    this.state = { query: searchQuery };
-    this.handleQueryChange = this.handleQueryChange.bind(this);
-    this.handleQuerySubmit = this.handleQuerySubmit.bind(this);
+    super(props)
+    const searchQuery = new URLSearchParams(this.props.queryParams).get('search') || ''
+    this.state = { query: searchQuery }
+    this.handleQueryChange = this.handleQueryChange.bind(this)
+    this.handleQuerySubmit = this.handleQuerySubmit.bind(this)
   }
 
   componentDidMount() {
-    this.props.refreshBooks(this.state.query);
+    this.props.refreshBooks(this.state.query)
   }
 
   componentWillUnmount() {
-    this.props.cleanUpBooks();
+    this.props.cleanUpBooks()
   }
 
   handleQueryChange(event: React.FormEvent<EventTarget>) {
-    this.setState({ query: (event.target as HTMLInputElement).value });
+    this.setState({ query: (event.target as HTMLInputElement).value })
   }
 
   handleQuerySubmit(event: React.FormEvent<EventTarget>) {
-    event.preventDefault();
-    this.props.refreshBooks(this.state.query);
+    event.preventDefault()
+    this.props.refreshBooks(this.state.query)
     this.props.history.push({
       pathname: '/books',
       search: `?search=${this.state.query}`,
-    });
+    })
   }
 
   render() {
@@ -55,7 +55,7 @@ const mapDispatch = {
   cleanUpBooks: () => cleanUpThunk(),
 }
 
-const connector = connect(null, mapDispatch);
+const connector = connect(null, mapDispatch)
 type PropsFromRedux = ConnectedProps<typeof connector>
 
-export default connector(SearchPanelContainer);
+export default connector(SearchPanelContainer)

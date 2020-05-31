@@ -1,5 +1,5 @@
 import React from 'react'
-import PurchaseCompletionContainer from '../PurchaseCompletion/PurchaseCompletionContainer'
+import PurchaseCompletionContainer from '../PurchaseCompletion'
 
 export default class PurchasePage extends React.Component {
   render() {

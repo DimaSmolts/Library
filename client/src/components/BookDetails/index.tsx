@@ -1,25 +1,25 @@
-import React from 'react';
+import React from 'react'
 import { BookNavParams } from '../BookPage/BookPage'
 import BookDetails from './BookDetails'
 import Message, { MessageTypes, MessageTextSizes } from '../Message/Message'
 import { getBookThunk, cleanUpThunk } from '../../store/thunks/bookThunks'
-import { connect, ConnectedProps } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux'
 import { AppState } from '../../store/rootReducer'
-import { Book } from '../../helpers/BookModel';
-import { addBookToCartThunk, removeBookFromCartThunk } from '../../store/thunks/cartThunks';
+import { Book } from '../../helpers/BookModel'
+import { addBookToCartThunk, removeBookFromCartThunk } from '../../store/thunks/cartThunks'
 
 class BookDetailsContainer extends React.Component<BookNavParams & PropsFromRedux> {
   componentDidMount() {
-    this.props.getBook(+this.props.bookId);
+    this.props.getBook(+this.props.bookId)
   }
 
   componentWillUnmount() {
-    this.props.cleanUp();
+    this.props.cleanUp()
   }
 
   render() {
     if (this.props.error)
-      throw new Error(this.props.error.toString());
+      throw new Error(this.props.error.toString())
     if (this.props.notFound)
       return <Message type={MessageTypes.msgNotFound} size={MessageTextSizes.msgBig} text='Not Found' />
 
@@ -53,7 +53,7 @@ const mapDispatch = {
   removeBookFromCart: (book: Book) => removeBookFromCartThunk(book),
 }
 
-const connector = connect(mapState, mapDispatch);
+const connector = connect(mapState, mapDispatch)
 type PropsFromRedux = ConnectedProps<typeof connector>
 
 export default connector(BookDetailsContainer)

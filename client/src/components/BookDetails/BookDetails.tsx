@@ -23,9 +23,9 @@ const BookDetails: React.SFC<BookDetailsProps> = (props: BookDetailsProps) => {
           let stars = Array<JSX.Element>()
           for (let i = 0; i < 10; i++) {
             if (i < props.book.rate) {
-              stars.push(<img src={starSolid} />);
+              stars.push(<img src={starSolid} />)
             } else {
-              stars.push(<img src={starOutline} />);
+              stars.push(<img src={starOutline} />)
             }
           }
           return stars

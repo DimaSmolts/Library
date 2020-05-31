@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 import BookList from './BookList'
 import Message, { MessageTypes, MessageTextSizes } from '../Message/Message'
-import { connect, ConnectedProps } from 'react-redux';
-import { AppState } from '../../store/rootReducer';
+import { connect, ConnectedProps } from 'react-redux'
+import { AppState } from '../../store/rootReducer'
 
 class BooksListContainer extends React.Component<PropsFromRedux> {
   render() {
     if (this.props.error)
-      throw new Error(this.props.error.toString());
+      throw new Error(this.props.error.toString())
     if (this.props.notFound)
       return <Message type={MessageTypes.msgNotFound} size={MessageTextSizes.msgBig} text='Not Found' />
 
@@ -29,7 +29,7 @@ const mapState = (state: AppState) => ({
   notFound: state.bookListReducer.notFound
 })
 
-const connector = connect(mapState, null);
+const connector = connect(mapState, null)
 type PropsFromRedux = ConnectedProps<typeof connector>
 
 export default connector(BooksListContainer)
