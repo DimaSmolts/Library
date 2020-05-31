@@ -7,6 +7,9 @@ const starOutline = require('../../assets/images/star-outline.svg');
 
 interface BookDetailsProps {
   book: Book,
+  quantityOfAddedItems: number,
+  addBookToCart: (book: Book) => void,
+  removeBookFromCart: (book: Book) => void,
 }
 
 export default class BookDetails extends React.Component<BookDetailsProps> {
@@ -49,7 +52,14 @@ export default class BookDetails extends React.Component<BookDetailsProps> {
       </div>
       <div className='book-detail-purchase'>
         <span className='book-detail-price'>{this.props.book.price}£</span>
-        <button className='book-detail-purchase-button'>Add to cart</button>
+        <span>In cart: {this.props.quantityOfAddedItems}</span>
+        <button
+          onClick={() => this.props.addBookToCart(this.props.book)}
+          className='book-detail-purchase-button'>add</button>
+        <button
+          onClick={() => this.props.removeBookFromCart(this.props.book)}
+          disabled={this.props.quantityOfAddedItems === 0 ? true : false}
+          className='book-detail-purchase-button'>remove</button>
       </div>
     </div>
   }
