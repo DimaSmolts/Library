@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './Message.css'
 
 export enum MessageTypes {
@@ -16,21 +16,21 @@ export enum MessageTextSizes {
 
 export interface MessageProps {
   text: string,
-  type: MessageTypes
-  size: MessageTextSizes
+  type: MessageTypes,
+  size: MessageTextSizes,
 }
 
-export default class Message extends React.Component<MessageProps> {
-  render() {
-    return (
-      <div className='message-container'>
-        <p className={
-          'message ' +
-          MessageTextSizes[this.props.size] + ' ' +
-          MessageTypes[this.props.type]}>
-          {this.props.text}
-        </p>
-      </div>
-    )
-  }
+const Message: React.SFC<MessageProps> = (props: MessageProps) => {
+  return (
+    <div className='message-container'>
+      <p className={
+        'message ' +
+        MessageTextSizes[props.size] + ' ' +
+        MessageTypes[props.type]}>
+        {props.text}
+      </p>
+    </div>
+  )
 }
+
+export default Message

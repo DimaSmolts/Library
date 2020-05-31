@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Message, { MessageTypes, MessageTextSizes } from '../Message/Message'
 
 export interface ErrorBoundaryState {

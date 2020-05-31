@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './index.css'
 
 interface SearchPanelProps {
@@ -7,22 +7,23 @@ interface SearchPanelProps {
   handleQuerySubmit: (event: React.FormEvent<EventTarget>) => void,
 }
 
-export default class SearchPanel extends React.Component<SearchPanelProps> {
-  render() {
-    return <div className='search-panel' >
-      <h2>Find a book!</h2>
-      <form className='search-panel-form' onSubmit={this.props.handleQuerySubmit.bind(this)}>
-        <span>I am looking for:</span>
-        <input className='search-panel-input'
-          spellCheck='false'
-          type='text'
-          placeholder='search...'
-          value={this.props.query}
-          onChange={this.props.handleQueryChange.bind(this)} />
-        <input className='search-panel-submit'
-          type='submit'
-          value='Go!' />
-      </form>
-    </div>
-  }
+const SearchPanel: React.SFC<SearchPanelProps> = (props: SearchPanelProps) => {
+  return <div className='search-panel' >
+    <h2>Find a book!</h2>
+    <form className='search-panel-form' onSubmit={props.handleQuerySubmit.bind(this)}>
+      <span>I am looking for:</span>
+      <input className='search-panel-input'
+        spellCheck='false'
+        type='text'
+        placeholder='search...'
+        value={props.query}
+        onChange={props.handleQueryChange.bind(this)} />
+      <input className='search-panel-submit'
+        type='submit'
+        value='Go!' />
+    </form>
+  </div>
 }
+
+
+export default SearchPanel

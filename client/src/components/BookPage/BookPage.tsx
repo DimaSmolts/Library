@@ -1,8 +1,8 @@
-import React from 'react';
-import BookDetailsContainer from '../BookDetails/BookDetailsContainer';
+import React from 'react'
+import BookDetailsContainer from '../BookDetails/BookDetailsContainer'
 
 export interface BookNavParams {
-  bookId: string;
+  bookId: string,
 }
 
 export default class BookPage extends React.Component<BookNavParams> {

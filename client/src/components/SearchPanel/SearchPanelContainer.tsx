@@ -14,7 +14,7 @@ export interface SearchPanelProps {
 }
 
 class SearchPanelContainer extends React.Component<PropsFromRedux & SearchPanelProps, SearchPanelState> {
-  constructor(props: any) {
+  constructor(props: PropsFromRedux & SearchPanelProps) {
     super(props);
     const searchQuery = new URLSearchParams(this.props.queryParams).get('search') || '';
     this.state = { query: searchQuery };
