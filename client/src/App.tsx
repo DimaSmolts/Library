@@ -1,19 +1,19 @@
-import React from 'react';
+import React from 'react'
 import { Router, Route, Switch } from 'react-router-dom'
-import { createBrowserHistory } from 'history';
+import { createBrowserHistory } from 'history'
 import './common-styles/index.css'
 import BookListPage from './components/BookListPage/BookListPage'
 import BookPage from './components/BookPage/BookPage'
 import PurchasePage from './components/PurchasePage/PurchasePage'
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 import Message, { MessageTypes, MessageTextSizes } from './components/Message/Message'
-import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 import { Provider } from 'react-redux'
-import configureStore from './store/configureStore';
+import configureStore from './store/configureStore'
 
-const store = configureStore();
-const history = createBrowserHistory();
+const store = configureStore()
+const history = createBrowserHistory()
 
 export default class App extends React.Component {
   render() {

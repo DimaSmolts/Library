@@ -12,7 +12,7 @@ import { filterBookList } from '../../helpers/bookListHelper'
 
 export const getBooksThunk = (query: string) => {
   return (dispatch: Dispatch) => {
-    dispatch(startFetchingBooks());
+    dispatch(startFetchingBooks())
     bookAPI.getBooks()
       .then<Array<Book>>(response => response.data)
       .then(books => filterBookList(books, query))
@@ -20,16 +20,16 @@ export const getBooksThunk = (query: string) => {
         if (books.length === 0) {
           // weird a bit, but was done like that due to requirements (client-side search)
           // in case of server-side search after filtering, 404 error would be returned
-          throw { response: { status: 404 } };
+          throw { response: { status: 404 } }
         } else {
-          dispatch(successFetchingBooks(books));
+          dispatch(successFetchingBooks(books))
         }
       })
       .catch(error => {
         if (error.response.status === 404) {
-          dispatch(booksNotFound());
+          dispatch(booksNotFound())
         } else {
-          dispatch(errorFetchingBooks(error.response.status));
+          dispatch(errorFetchingBooks(error.response.status))
         }
       });
   }
@@ -37,6 +37,6 @@ export const getBooksThunk = (query: string) => {
 
 export const cleanUpThunk = () => {
   return (dispatch: Dispatch) => {
-    dispatch(cleanUpBooks());
+    dispatch(cleanUpBooks())
   }
 }

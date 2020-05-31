@@ -1,22 +1,17 @@
-import { Book } from '../../helpers/BookModel'
 import {
   ADD_BOOK_TO_CART,
   REMOVE_BOOK_FROM_CART,
   CLEAN_UP_CART,
   CartActions,
 } from '../actions/cartActions'
-
-export interface BookCartRecord {
-  book: Book,
-  quantity: number,
-}
+import { BookCartRecord } from '../../helpers/BookCartRecord'
 
 // TODO: try to find a way to use Dictionary<Book, number>
 const initialCartState = {
   bookRecords: [] as Array<BookCartRecord>,
 }
 
-export type CartState = typeof initialCartState;
+export type CartState = typeof initialCartState
 
 export function cartReducer(state: CartState = initialCartState, action: CartActions): CartState {
   switch (action.type) {
@@ -40,6 +35,6 @@ export function cartReducer(state: CartState = initialCartState, action: CartAct
         bookRecords: [],
       }
     default:
-      return state;
+      return state
   }
 }

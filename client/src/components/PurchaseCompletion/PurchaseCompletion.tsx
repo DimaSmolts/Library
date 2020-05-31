@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 import { Book } from '../../helpers/BookModel'
-import { BookCartRecord } from '../../store/reducers/cartReducer'
+import { BookCartRecord } from '../../helpers/BookCartRecord'
 
 interface PurchaseCompletionProps {
   bookCartRecords: Array<BookCartRecord>,
