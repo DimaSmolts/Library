@@ -1,19 +1,33 @@
 import React from 'react';
 import SearchPanel from './SearchPanel';
-import { getBooksThunk } from '../../store/thunks/bookListThunks';
+import { getBooksThunk, cleanUpThunk } from '../../store/thunks/bookListThunks';
 import { connect, ConnectedProps } from 'react-redux';
-import { BookListHistory } from '../BookListPage/BookListPage';
+import { History } from 'history';
 
 interface SearchPanelState {
   query: string,
 }
 
-class SearchPanelContainer extends React.Component<PropsFromRedux & BookListHistory, SearchPanelState> {
+export interface SearchPanelProps {
+  queryParams: string,
+  history: History,
+}
+
+class SearchPanelContainer extends React.Component<PropsFromRedux & SearchPanelProps, SearchPanelState> {
   constructor(props: any) {
     super(props);
-    this.state = { query: '' };
+    const searchQuery = new URLSearchParams(this.props.queryParams).get('search') || '';
+    this.state = { query: searchQuery };
     this.handleQueryChange = this.handleQueryChange.bind(this);
     this.handleQuerySubmit = this.handleQuerySubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.refreshBooks(this.state.query);
+  }
+
+  componentWillUnmount() {
+    this.props.cleanUpBooks();
   }
 
   handleQueryChange(event: React.FormEvent<EventTarget>) {
@@ -38,6 +52,7 @@ class SearchPanelContainer extends React.Component<PropsFromRedux & BookListHist
 
 const mapDispatch = {
   refreshBooks: (query: string) => getBooksThunk(query),
+  cleanUpBooks: () => cleanUpThunk(),
 }
 
 const connector = connect(null, mapDispatch);

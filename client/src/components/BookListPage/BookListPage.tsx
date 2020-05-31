@@ -1,20 +1,12 @@
 import React from 'react';
 import BookListContainer from '../BookList/BookListContainer';
-import SearchPanelContainer from '../SearchPanel/SearchPanelContainer';
+import SearchPanelContainer, { SearchPanelProps } from '../SearchPanel/SearchPanelContainer';
 
-export interface BookListNavParams {
-  queryParams: string,
-}
-
-export interface BookListHistory {
-  history: any,
-}
-
-export default class BookListPage extends React.Component<BookListNavParams & BookListHistory> {
+export default class BookListPage extends React.Component<SearchPanelProps> {
   render() {
     return <>
-      <SearchPanelContainer history={this.props.history} />
-      <BookListContainer queryParams={this.props.queryParams} />
+      <SearchPanelContainer queryParams={this.props.queryParams} history={this.props.history} />
+      <BookListContainer />
     </>
   }
 }
