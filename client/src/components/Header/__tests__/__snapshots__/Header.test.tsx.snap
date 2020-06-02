@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot: <Header /> renders correctly 1`] = `
+<div
+  className="header"
+>
+  <img
+    src={Object {}}
+  />
+  <a
+    className="organisation-name-link"
+    href="/"
+    onClick={[Function]}
+  >
+    <h1>
+      Library
+    </h1>
+  </a>
+  <a
+    href="/purchase"
+    onClick={[Function]}
+  >
+    <img
+      className="shopping-bag"
+      src={Object {}}
+    />
+  </a>
+</div>
+`;
