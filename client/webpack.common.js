@@ -4,7 +4,7 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     entry: {
-        app: path.join(__dirname, 'src', 'index.tsx')
+        app: path.join(__dirname, 'index.tsx')
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js']
