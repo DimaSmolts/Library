@@ -6,15 +6,15 @@ export const REMOVE_BOOK_FROM_CART = 'REMOVE_BOOK_FROM_CART'
 export const CLEAN_UP_CART = 'CLEAN_UP_CART'
 
 // actions
-type AddBookToCartAction = {
+export type AddBookToCartAction = {
   type: typeof ADD_BOOK_TO_CART,
   book: Book,
 }
-type RemoveBookFromCartAction = {
+export type RemoveBookFromCartAction = {
   type: typeof REMOVE_BOOK_FROM_CART,
   book: Book,
 }
-type CleanUpCartAction = {
+export type CleanUpCartAction = {
   type: typeof CLEAN_UP_CART,
 }
 

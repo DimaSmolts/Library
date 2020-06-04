@@ -8,21 +8,21 @@ export const SUCCESS_FETCHING_BOOKS = 'SUCCESS_FETCHING_BOOKS'
 export const CLEAN_UP_BOOKS = 'CLEAN_UP_BOOKS'
 
 // actions
-type StartFetchingBooksAction = {
+export type StartFetchingBooksAction = {
   type: typeof START_FETCHING_BOOKS,
 }
-type ErrorFetchingBooksAction = {
+export type ErrorFetchingBooksAction = {
   type: typeof ERROR_FETCHING_BOOKS,
   errorCode: number | null,
 }
-type BooksNotFoundAction = {
+export type BooksNotFoundAction = {
   type: typeof BOOKS_NOT_FOUND,
 }
-type SuccessFetchingBooksAction = {
+export type SuccessFetchingBooksAction = {
   type: typeof SUCCESS_FETCHING_BOOKS,
   books: Array<Book>,
 }
-type CleanUpBooksAction = {
+export type CleanUpBooksAction = {
   type: typeof CLEAN_UP_BOOKS,
 }
 
