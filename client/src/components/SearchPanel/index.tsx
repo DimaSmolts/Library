@@ -13,7 +13,7 @@ export interface SearchPanelProps {
   history: History,
 }
 
-class SearchPanelContainer extends React.Component<PropsFromRedux & SearchPanelProps, SearchPanelState> {
+export class SearchPanelContainer extends React.Component<PropsFromRedux & SearchPanelProps, SearchPanelState> {
   constructor(props: PropsFromRedux & SearchPanelProps) {
     super(props)
     const searchQuery = new URLSearchParams(this.props.queryParams).get('search') || ''
@@ -30,11 +30,11 @@ class SearchPanelContainer extends React.Component<PropsFromRedux & SearchPanelP
     this.props.cleanUpBooks()
   }
 
-  handleQueryChange(event: React.FormEvent<EventTarget>) {
-    this.setState({ query: (event.target as HTMLInputElement).value })
+  handleQueryChange(event: React.FormEvent<HTMLInputElement>) {
+    this.setState({ query: event.currentTarget.value })
   }
 
-  handleQuerySubmit(event: React.FormEvent<EventTarget>) {
+  handleQuerySubmit(event: React.FormEvent<HTMLInputElement>) {
     event.preventDefault()
     this.props.refreshBooks(this.state.query)
     this.props.history.push({

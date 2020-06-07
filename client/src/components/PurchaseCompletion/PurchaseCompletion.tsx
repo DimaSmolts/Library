@@ -45,5 +45,4 @@ const PurchaseCompletion: React.SFC<PurchaseCompletionProps> = (props: PurchaseC
   </div>
 }
 
-
 export default PurchaseCompletion
