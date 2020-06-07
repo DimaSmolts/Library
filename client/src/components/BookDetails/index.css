@@ -5,8 +5,8 @@
   width: 100%;
   display: grid;
   grid-template-columns: 4fr 6fr;
-  grid-template-rows: 10% 15% 10% 35% 10% auto;
-  grid-gap: 1em;
+  grid-template-rows: 10% 15% 10% auto 6% 5%;
+  grid-gap: 0.5em 1em;
   box-shadow: 5px 5px 15px;
   box-sizing: border-box;
   border-radius: 40px;
@@ -86,7 +86,7 @@
   margin-right: 10px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 800px) {
   .book-detail-container {
     grid-template-rows: auto;
     grid-template-columns: 1fr;
