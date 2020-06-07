@@ -8,7 +8,7 @@ import {
   BookListActions,
 } from '../actions/bookListActions'
 
-const initialListBookState = {
+export const initialListBookState = {
   areFetched: false,
   books: [] as Array<Book>,
   error: null as number,

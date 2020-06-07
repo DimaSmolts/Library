@@ -7,7 +7,7 @@ import {
 import { BookCartRecord } from '../../helpers/BookCartRecord'
 
 // TODO: try to find a way to use Dictionary<Book, number>
-const initialCartState = {
+export const initialCartState = {
   bookRecords: [] as Array<BookCartRecord>,
 }
 

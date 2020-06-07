@@ -8,7 +8,7 @@ import {
   BookActions,
 } from '../actions/bookActions'
 
-const initialBookState = {
+export const initialBookState = {
   isFetched: false,
   book: null as Book,
   error: null as number,
