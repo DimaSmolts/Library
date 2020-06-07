@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot: <PurchaseCompletion /> renders correctly 1`] = `
+<div
+  className="purchase-completion"
+>
+  <span
+    className="purchase-column-title"
+  >
+    Book
+  </span>
+  <span
+    className="purchase-column-title"
+  >
+    Price
+  </span>
+  <span
+    className="purchase-column-title"
+  >
+    Count
+  </span>
+  <span
+    className="purchase-column-title"
+  >
+    Sum
+  </span>
+  <h2>
+    1
+    .
+    any
+  </h2>
+  <span>
+    20
+    £
+  </span>
+  <span>
+    x
+    2
+  </span>
+  <span>
+    40
+    £
+  </span>
+  <div
+    className="total-line"
+  />
+  <h2
+    className="total"
+  >
+     Total
+  </h2>
+  <span
+    className="final-price"
+  >
+    40
+    £
+  </span>
+  <button
+    className="submit-purchase"
+    onClick={[MockFunction]}
+  >
+    Submit
+  </button>
+</div>
+`;
