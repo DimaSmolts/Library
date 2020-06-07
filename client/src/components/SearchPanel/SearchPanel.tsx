@@ -25,5 +25,4 @@ const SearchPanel: React.SFC<SearchPanelProps> = (props: SearchPanelProps) => {
   </div>
 }
 
-
 export default SearchPanel

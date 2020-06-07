@@ -54,11 +54,11 @@ const BookDetails: React.SFC<BookDetailsProps> = (props: BookDetailsProps) => {
       <span>In cart: {props.quantityOfAddedItems}</span>
       <button
         onClick={() => props.addBookToCart(props.book)}
-        className='book-detail-purchase-button'>add</button>
+        className='add-book-button book-detail-purchase-button'>add</button>
       <button
         onClick={() => props.removeBookFromCart(props.book)}
         disabled={props.quantityOfAddedItems === 0 ? true : false}
-        className='book-detail-purchase-button'>remove</button>
+        className='remove-book-button book-detail-purchase-button'>remove</button>
     </div>
   </div>
 }

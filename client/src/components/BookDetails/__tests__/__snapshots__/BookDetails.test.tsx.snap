@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot: <BookDetails /> renders correctly 1`] = `
+<div
+  className="book-detail-container"
+>
+  <div
+    className="book-detail-image"
+  >
+    <img
+      src="image"
+    />
+  </div>
+  <div
+    className="book-detail-rate"
+  >
+    <img
+      src={Object {}}
+    />
+    <img
+      src={Object {}}
+    />
+    <img
+      src={Object {}}
+    />
+    <img
+      src={Object {}}
+    />
+    <img
+      src={Object {}}
+    />
+    <img
+      src={Object {}}
+    />
+    <img
+      src={Object {}}
+    />
+    <img
+      src={Object {}}
+    />
+    <img
+      src={Object {}}
+    />
+    <img
+      src={Object {}}
+    />
+  </div>
+  <h3
+    className="book-detail-author"
+  >
+    Author
+  </h3>
+  <h2
+    className="book-detail-name"
+  >
+    Name
+  </h2>
+  <div
+    className="book-detail-genres"
+  >
+    <span
+      className="book-detail-genre"
+    >
+      first
+    </span>
+    <span
+      className="book-detail-genre"
+    >
+      second
+    </span>
+  </div>
+  <div
+    className="book-detail-description"
+  >
+    description
+  </div>
+  <div
+    className="book-detail-purchase"
+  >
+    <span
+      className="book-detail-price"
+    >
+      20
+      £
+    </span>
+    <span>
+      In cart: 
+      0
+    </span>
+    <button
+      className="add-book-button book-detail-purchase-button"
+      onClick={[Function]}
+    >
+      add
+    </button>
+    <button
+      className="remove-book-button book-detail-purchase-button"
+      disabled={true}
+      onClick={[Function]}
+    >
+      remove
+    </button>
+  </div>
+</div>
+`;
