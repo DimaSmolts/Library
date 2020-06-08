@@ -1,0 +1,29 @@
+.message-container {
+  display: grid;
+  height: 50%;
+}
+
+.message {
+  place-self: center;
+  text-align: center;
+}
+
+.msgSmall {
+  font-size: 1rem;
+}
+.msgMedium {
+  font-size: 2rem;
+}
+.msgBig {
+  font-size: 4rem;
+}
+
+.msgInfo,
+.msgSuccess,
+.msgNotFound {
+  color: var(--dark-blue);
+}
+
+.msgError {
+  color: red;
+}

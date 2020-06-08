@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot: <BookCard /> renders correctly 1`] = `
+<a
+  className="book-card-link"
+  href="/books/1"
+  onClick={[Function]}
+>
+  <div
+    className="book-card"
+  >
+    <img
+      src="image"
+    />
+    <span
+      className="book-card-author"
+    >
+      author
+    </span>
+    <h3>
+      name
+    </h3>
+  </div>
+</a>
+`;

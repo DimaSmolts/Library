@@ -1,0 +1,17 @@
+.header {
+  background: var(--dark-blue);
+  padding: 0 2vw;
+  display: grid;
+  grid-template-columns: 140px 1fr 70px;
+  align-items: center;
+}
+
+.header img {
+  vertical-align: middle;
+  height: 70%;
+}
+
+.organisation-name-link {
+  text-decoration: none;
+  color: var(--gold);
+}

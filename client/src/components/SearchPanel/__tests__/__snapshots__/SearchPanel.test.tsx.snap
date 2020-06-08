@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot: <SearchPanel /> renders correctly 1`] = `
+<div
+  className="search-panel"
+>
+  <h2>
+    Find a book!
+  </h2>
+  <form
+    className="search-panel-form"
+    onSubmit={[Function]}
+  >
+    <span>
+      I am looking for:
+    </span>
+    <input
+      className="search-panel-input"
+      onChange={[Function]}
+      placeholder="search..."
+      spellCheck="false"
+      type="text"
+      value="anything"
+    />
+    <input
+      className="search-panel-submit"
+      type="submit"
+      value="Go!"
+    />
+  </form>
+</div>
+`;
